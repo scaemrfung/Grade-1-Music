@@ -1,6 +1,6 @@
 # Grade 1 Music
 
-Weekly 30-minute Alberta Grade 1 music lessons a substitute can teach from the page.
+Weekly 30-minute Alberta Grade 1 music lessons you can teach from the page.
 
 **Live site:** https://scaemrfung.github.io/Grade-1-Music/
 
