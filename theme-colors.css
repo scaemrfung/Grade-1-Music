@@ -1,0 +1,14 @@
+/* Three-colour signature for Grade 1 Music: plum / concert gold / teal */
+:root {
+  --color-accent: #c4a035;
+  --color-highlight: #2f7d6b;
+  --color-accent-soft: #f6e9c0;
+  --color-highlight-soft: #d7efe6;
+}
+body::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: linear-gradient(90deg, #5c3d8a 0 34%, #c4a035 34% 67%, #2f7d6b 67% 100%);
+}
+@media print { body::before { display: none; } }
