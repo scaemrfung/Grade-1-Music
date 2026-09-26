@@ -1,0 +1,46 @@
+/* "This week in 3 classes" breakdown on each week page */
+.c3 { margin: 22px 0 8px; }
+.c3 > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+.c3 > summary::-webkit-details-marker { display: none; }
+.c3 > summary::before { content: "▸"; color: var(--color-primary); display: inline-block; transition: transform .15s ease; }
+.c3[open] > summary::before { transform: rotate(90deg); }
+.c3 > summary h2 { margin: 0; display: inline; }
+.c3 > summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 6px; }
+.c3-inner { margin-top: 8px; }
+.c3-tabbar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0 0; }
+.c3-tab { font: inherit; min-height: 48px; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--color-line); background: #fff; color: var(--color-fg); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2; }
+.c3-tab-n { font-weight: 700; font-size: 15px; }
+.c3-tab-l { font-size: 12px; color: var(--color-muted); }
+.c3-tab.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.c3-tab.is-active .c3-tab-l { color: rgba(255,255,255,.85); }
+.c3-tab:focus-visible { outline: 2px solid var(--color-accent, #c4a035); outline-offset: 2px; }
+.c3-panel { display: none; }
+.c3-panel.is-active { display: block; }
+.c3-panel h3 { margin-top: 0; }
+.c3-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.c3-item { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; border-top: 1px solid var(--color-line); }
+.c3-item:first-child { border-top: 0; }
+.c3-min { flex: 0 0 auto; min-width: 62px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; font-size: 13.5px; padding: 4px 8px; border-radius: 999px; background: var(--color-highlight-soft, #d7efe6); color: var(--color-highlight, #2f7d6b); }
+.c3-dev .c3-min { background: var(--color-accent-soft, #f6e9c0); color: #7a5d10; }
+.c3-dev .c3-detail { color: var(--color-muted); font-style: italic; }
+.c3-body { display: block; flex: 1; min-width: 0; }
+.c3-body strong { display: block; }
+
+.c3-detail { display: block; font-size: 14.5px; }
+.c3-total { margin: 10px 0 0; font-size: 13.5px; color: var(--color-muted); }
+@media (max-width: 520px) {
+  .c3-tab { padding: 6px 4px; }
+  .c3-tab-l { font-size: 11px; }
+  .c3-item { gap: 8px; }
+  .c3-min { min-width: 54px; font-size: 12.5px; padding: 3px 6px; }
+}
+@media print {
+  .c3 > summary::before, .c3-tabbar { display: none !important; }
+  .c3-panel, .c3-panel.is-active { display: block !important; break-inside: avoid; page-break-inside: avoid; }
+  .c3-min { background: none !important; border: 1px solid #999; color: #000 !important; }
+}
+/* Phones: let the main column shrink so week pages (and this plan) fit the screen instead of scrolling sideways */
+.shell > .main { min-width: 0; }
+.c3-bring { margin: 4px 0 6px; padding: 6px 10px; border-radius: 10px; background: var(--color-surface, #f7f2fb); border: 1px dashed var(--color-line); font-size: 14px; }
+@media print { .c3-bring { background: none; } }
+.c3-h-sep, .c3-h-l { color: var(--color-muted); font-weight: 600; }
