@@ -265,6 +265,10 @@
     if (label) wrap.insertBefore(h("span", { class: "g1t-seg-label" }, label), wrap.firstChild);
     return wrap;
   }
+  /* Presets from the link: #toolid?key=value&key=value (settings only, never autoplay). */
+  var PARAMS = {};
+  function prm(k, allowed, def) { var v = PARAMS[k]; if (v == null) return def; for (var i = 0; i < allowed.length; i++) if (String(allowed[i]) === String(v)) return allowed[i]; return def; }
+  function prmNum(k, lo, hi, def) { var v = parseFloat(PARAMS[k]); return isFinite(v) ? Math.max(lo, Math.min(hi, v)) : def; }
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
 
@@ -336,7 +340,7 @@
 
   /* ---------- Generic listening game ---------- */
   function listeningGame(cfg) {
-    var mode = cfg.modes[0].value, round = null, stars = 0, tries = 0;
+    var mode = prm("mode", cfg.modes.map(function (m) { return m.value; }), cfg.modes[0].value), round = null, stars = 0, tries = 0;
     var root = h("div", { class: "g1t-game" });
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, cfg.intro);
     var score = h("p", { class: "g1t-score" }, "");
@@ -398,7 +402,7 @@
 
   /* ---------- Tool: steady beat ---------- */
   function toolBeat() {
-    var bpm = 90, group = 4, sound = "wood", beat = 0, taps = [];
+    var bpm = Math.round(prmNum("bpm", 40, 200, 90)), group = prm("group", [1, 2, 3, 4], 4), sound = "wood", beat = 0, taps = [];
     var circle = h("div", { class: "g1t-pulse", "aria-hidden": "true" });
     var circleE = h("span", { class: "g1t-pulse-e" }, "🚶");
     var circleN = h("span", { class: "g1t-pulse-n" }, "");
@@ -477,7 +481,7 @@
       { s: "do", l: "C", f: NOTE.C4 }, { s: "re", l: "D", f: NOTE.D4 }, { s: "mi", l: "E", f: NOTE.E4 }, { s: "fa", l: "F", f: NOTE.F4 },
       { s: "so", l: "G", f: NOTE.G4 }, { s: "la", l: "A", f: NOTE.A4 }, { s: "ti", l: "B", f: NOTE.B4 }, { s: "do", l: "C", f: NOTE.C5 }
     ];
-    var labels = "solfa", voice = "mallet", focus = false, keys = "asdfghjk", bars = [];
+    var labels = prm("labels", ["solfa", "letters", "hands"], "solfa"), voice = "mallet", focus = PARAMS.notes === "sml", keys = "asdfghjk", bars = [];
     var wrap = h("div", { class: "g1t-xylo", role: "group", "aria-label": "Xylophone, C major" });
     function hit(i) {
       var b = bars[i];
@@ -587,7 +591,7 @@
 
   /* ---------- Tool: so-mi-la echo game ---------- */
   function toolEcho() {
-    var level = "sm", len = 3, showMe = true, pattern = null, input = [], busy = false, stars = 0, tries = 0;
+    var level = prm("notes", ["sm", "sml"], "sm"), len = prm("len", [3, 4], 3), showMe = true, pattern = null, input = [], busy = false, stars = 0, tries = 0;
     var names = ["la", "so", "mi"], colors = { la: BW.A, so: BW.G, mi: BW.E };
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Press ▶ Listen. Then tap the bars to play it back.");
     var progress = h("div", { class: "g1t-progress", "aria-hidden": "true" });
@@ -1122,7 +1126,9 @@
 
   /* ---------- Tool: rhythm maker ---------- */
   function toolRhythm() {
-    var pat = ["ta", "ta", "titi", "ta", "ta", "titi", "ta", "rest"], bpm = 90, sound = "clap", loop = false, now_ = -1, beat = 0;
+    var pat = ["ta", "ta", "titi", "ta", "ta", "titi", "ta", "rest"], bpm = 90;
+    if (PARAMS.p) { var pp = String(PARAMS.p).split(/[.,]/).filter(function (x) { return RLAB[x]; }); if (pp.length) pat = pat.map(function (_, i) { return pp[i % pp.length]; }); }
+    var sound = "clap", loop = false, now_ = -1, beat = 0;
     var notation = h("div", { class: "g1t-rhythm-view" });
     var cells = h("div", { class: "g1t-cells" });
     var playBtn = btn("▶ Play", "btn-primary g1t-xl", toggle);
@@ -1165,7 +1171,7 @@
 
   /* ---------- Tool: rhythm dictation ---------- */
   function toolDictation() {
-    var rests = false, round = null, stars = 0, tries = 0, bpm = 80;
+    var rests = PARAMS.rests === "1", round = null, stars = 0, tries = 0, bpm = 80;
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Press ▶ Listen. You will hear 4 clicks, then the rhythm.");
     var choices = h("div", { class: "g1t-choices" });
     var score = h("p", { class: "g1t-score" });
@@ -1216,7 +1222,7 @@
 
   /* ---------- Tool: drum echo (call and response) ---------- */
   function toolDrumEcho() {
-    var bpm = 80, rests = false, busy = false, taps = [], windowStart = 0, gap = 0.75, pattern = null, stars = 0, tries = 0, countIn = true;
+    var bpm = 80, rests = PARAMS.rests === "1", busy = false, taps = [], windowStart = 0, gap = 0.75, pattern = null, stars = 0, tries = 0, countIn = true;
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Press ▶ Start. Count 1, 2, 3, 4 with me, listen to my drum, then play it back on the big drum.");
     var callRow = h("div", { class: "g1t-echo-rows" });
     var drum = h("button", { type: "button", class: "g1t-bigdrum", "aria-label": "Big drum. Tap to play." }, [h("span", { "aria-hidden": "true" }, "🥁"), h("b", null, "Tap here")]);
@@ -1287,7 +1293,7 @@
 
   /* ---------- Tool: hand-sign flashcards ---------- */
   function toolFlash() {
-    var set = "smld", hide = false, auto = false, cur = null, shown = false, ladderOn = false;
+    var set = prm("notes", ["sm", "sml", "smld", "all"], "smld"), hide = false, auto = false, cur = null, shown = false, ladderOn = false;
     var PITCH = { do: NOTE.C4, re: NOTE.D4, mi: NOTE.E4, fa: NOTE.F4, so: NOTE.G4, la: NOTE.A4, ti: NOTE.B4, "do'": NOTE.C5 };
     var COL = { do: BW.C, re: BW.D, mi: BW.E, fa: BW.F, so: BW.G, la: BW.A, ti: BW.B, "do'": BW.C };
     var card = h("div", { class: "g1t-flash", "aria-live": "polite" });
@@ -1711,7 +1717,7 @@
     { n: "Apple, peach, pear, plum", l: [[["Ap-ple,", "titi"], ["peach,", "ta"], ["pear,", "ta"], ["plum", "ta"]], [["Tell me", "titi"], ["when your", "titi"], ["birth-day", "titi"], ["comes!", "ta"]]] }
   ];
   function toolBeatRhythm() {
-    var ci = 0, bpm = 84, parts = "both", beat = 0, cur = -1;
+    var ci = Math.max(0, ["bee", "buns", "pease", "rain", "apple"].indexOf(PARAMS.chant)), bpm = 84, parts = "both", beat = 0, cur = -1;
     var grid = h("div", { class: "g1t-br-grid" });
     var playBtn = btn("▶ Play the chant", "btn-primary g1t-xl", toggle);
     function flat() { var o = []; CHANTS[ci].l.forEach(function (ln) { ln.forEach(function (b) { o.push(b); }); }); return o; }
@@ -2173,9 +2179,9 @@
   }
 
   /* ---------- Tool: conductor ---------- */
-  var DYN = [{ v: "p", e: "🐭", n: "Soft", sym: "p", g: 0.28, c: "#8e24aa" }, { v: "mf", e: "🙂", n: "Medium", sym: "mf", g: 0.6, c: "#00897b" }, { v: "f", e: "🦁", n: "Loud", sym: "f", g: 1, c: "#c62828" }];
+  var CDYN = [{ v: "p", e: "🐭", n: "Soft", sym: "p", g: 0.28, c: "#8e24aa" }, { v: "mf", e: "🙂", n: "Medium", sym: "mf", g: 0.6, c: "#00897b" }, { v: "f", e: "🦁", n: "Loud", sym: "f", g: 1, c: "#c62828" }];
   function toolConductor() {
-    var playing = false, bpm = 90, dyn = DYN[1], guide = true, surprise = false, beat = 0, vol = dyn.g, ramp = 0;
+    var playing = false, bpm = 90, dyn = CDYN[1], guide = true, surprise = false, beat = 0, vol = dyn.g, ramp = 0;
     var sign = h("div", { class: "g1t-cond-sign", "aria-live": "polite" });
     var baton = h("div", { class: "g1t-cond-baton", "aria-hidden": "true" }, "🪄");
     var mainBtn = btn("▶ Play!", "btn-primary g1t-xl g1t-cond-main", toggle);
@@ -2194,7 +2200,7 @@
     function setDyn(d) { dyn = d; vol = d.g; ramp = 0; render(); }
     var runner = Loop(function (t) {
       var g = 60 / bpm;
-      if (ramp) { vol = Math.max(0.2, Math.min(1, vol + ramp * 0.1)); var nd = vol < 0.45 ? DYN[0] : vol < 0.8 ? DYN[1] : DYN[2]; if (nd !== dyn) { dyn = nd; at(t, render); } if (vol <= 0.2 || vol >= 1) ramp = 0; }
+      if (ramp) { vol = Math.max(0.2, Math.min(1, vol + ramp * 0.1)); var nd = vol < 0.45 ? CDYN[0] : vol < 0.8 ? CDYN[1] : CDYN[2]; if (nd !== dyn) { dyn = nd; at(t, render); } if (vol <= 0.2 || vol >= 1) ramp = 0; }
       if (guide) { S.shaker(t, vol); S.shaker(t + g / 2, vol * 0.6); }
       at(t, function () { flash(baton, "is-beat", 180); });
       beat++;
@@ -2202,7 +2208,7 @@
         var r = Math.random();
         at(t + g * 0.9, function () {
           if (r < 0.35) { stopPlay(); later(function () { if (!playing) startPlay(); }, 4 * g * 1000); }
-          else if (r < 0.7) setDyn(pick(DYN.filter(function (x) { return x !== dyn; })));
+          else if (r < 0.7) setDyn(pick(CDYN.filter(function (x) { return x !== dyn; })));
           else { bpm = pick([70, 90, 110, 130].filter(function (x) { return x !== bpm; })); render(); }
         });
       }
@@ -2215,7 +2221,7 @@
     var el = h("div", { class: "g1t-cond" }, [h("div", { class: "g1t-cond-stage" }, [baton, sign]),
       h("div", { class: "g1t-row" }, [mainBtn]),
       h("div", { class: "g1t-controls" }, [
-        seg(DYN.map(function (d) { return { value: d.v, label: d.e + " " + d.n + " (" + d.sym + ")" }; }), dyn.v, function (v) { setDyn(DYN.filter(function (d) { return d.v === v; })[0]); }, "Dynamics"),
+        seg(CDYN.map(function (d) { return { value: d.v, label: d.e + " " + d.n + " (" + d.sym + ")" }; }), dyn.v, function (v) { setDyn(CDYN.filter(function (d) { return d.v === v; })[0]); }, "Dynamics"),
         h("div", { class: "g1t-tempo" }, [btn("📈 Get louder", "btn-ghost g1t-lg", function () { ramp = 1; render(); }), btn("📉 Get softer", "btn-ghost g1t-lg", function () { ramp = -1; render(); })]),
         seg([{ value: 70, label: "🐢 Slow" }, { value: 90, label: "🚶 Walking" }, { value: 110, label: "🐇 Fast" }, { value: 130, label: "🐆 Very fast" }], bpm, function (v) { bpm = v; render(); }, "Tempo"),
         seg([{ value: true, label: "🪇 Guide shaker on" }, { value: false, label: "🔇 Class only" }], guide, function (v) { guide = v; }, "Sound"),
@@ -2223,7 +2229,7 @@
       h("p", { class: "hint" }, "Hand out shakers. Play when the sign says PLAY, freeze on STOP, and match the size of the lion or mouse. Keys: Space = play/stop, P / M / F = soft, medium, loud. A student can be the conductor too.")]);
     return { el: el, stop: function () { playing = false; runner.stop(); silence(); }, key: function (k) {
       if (k === " " || k === "enter") { toggle(); return true; }
-      var d = DYN.filter(function (x) { return x.v === (k === "m" ? "mf" : k); })[0]; if (d) { setDyn(d); var b = el.querySelector('.g1t-seg[aria-label="Dynamics"] button:nth-of-type(' + (DYN.indexOf(d) + 1) + ")"); if (b) { el.querySelectorAll('.g1t-seg[aria-label="Dynamics"] button').forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); } return true; }
+      var d = CDYN.filter(function (x) { return x.v === (k === "m" ? "mf" : k); })[0]; if (d) { setDyn(d); var b = el.querySelector('.g1t-seg[aria-label="Dynamics"] button:nth-of-type(' + (CDYN.indexOf(d) + 1) + ")"); if (b) { el.querySelectorAll('.g1t-seg[aria-label="Dynamics"] button').forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); } return true; }
       return false; } };
   }
 
@@ -2426,7 +2432,7 @@
       [["how", "fa", 1], ["I", "fa", 1], ["won-", "mi", 1], ["der", "mi", 1], ["what", "re", 1], ["you", "re", 1], ["are.", "do", 2]]] }
   ];
   function toolSingalong() {
-    var si = 0, speed = 1, melody = true, showSolfa = false, flat = [], spans = [], idx = 0, beatInSong = 0, playing = false;
+    var si = Math.max(0, SONGS.map(function (s) { return s.id; }).indexOf(PARAMS.song)), speed = 1, melody = PARAMS.tune !== "0", showSolfa = PARAMS.solfa === "1", flat = [], spans = [], idx = 0, beatInSong = 0, playing = false;
     var sheet = h("div", { class: "g1t-sing" });
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Pick a song and press ▶ Sing along. Follow the bouncing ball.");
     var playBtn = btn("▶ Sing along", "btn-primary g1t-xl", toggle);
@@ -2538,7 +2544,7 @@
 
   /* ---------- Tool: rhythm puzzle ---------- */
   function toolRPuzzle() {
-    var len = 4, rests = false, target = null, slots = [], bpm = 88, solved = 0, tries = 0, dragKind = null;
+    var len = prm("len", [4, 8], 4), rests = PARAMS.rests === "1", target = null, slots = [], bpm = 88, solved = 0, tries = 0, dragKind = null;
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Press ▶ Hear the rhythm. Then drag (or tap) the cards into the boxes to match it.");
     var slotRow = h("div", { class: "g1t-rp-slots" }), tray = h("div", { class: "g1t-rp-tray" }), score = h("p", { class: "g1t-score" });
     function playPat(p, t) { var g = 60 / bpm; S.woodblock(t, 0.5, true); S.woodblock(t + g, 0.5, true); S.woodblock(t + 2 * g, 0.5, true); S.woodblock(t + 3 * g, 0.5, true); var s = t + 4 * g; p.forEach(function (x, i) { if (x === "ta") S.clap(s + i * g, 1); if (x === "titi") { S.clap(s + i * g, 1); S.clap(s + i * g + g / 2, 0.85); } }); }
@@ -2719,7 +2725,7 @@
 
   /* ---------- Tool: solfege staircase ---------- */
   function toolStairs() {
-    var ALL = ["do", "re", "mi", "fa", "so", "la", "ti", "do'"], set = "pent", pos = -1, game = null, stars = 0;
+    var ALL = ["do", "re", "mi", "fa", "so", "la", "ti", "do'"], set = prm("steps", ["sml", "pent", "all"], "pent"), pos = -1, game = null, stars = 0;
     var COLS = ["#e53935", "#fb8c00", "#fdd835", "#8bc34a", "#00897b", "#3949ab", "#d81b60", "#e53935"];
     var stairs = h("div", { class: "g1t-st" }), kid = h("span", { class: "g1t-st-kid", "aria-hidden": "true" }, "🧒");
     var status = h("p", { class: "g1t-status", "aria-live": "polite" }, "Tap a step to sing it. Climb up and down the scale, or play ‘Where did I stop?’");
@@ -3027,18 +3033,26 @@
       current = null;
       body.innerHTML = "";
     }
-    function open(t) {
+    function parseHash() {
+      var raw = (location.hash || "").slice(1), q = raw.indexOf("?"), id = q < 0 ? raw : raw.slice(0, q), params = {};
+      if (q >= 0) raw.slice(q + 1).split("&").forEach(function (kv) { if (!kv) return; var i = kv.indexOf("="); try { params[decodeURIComponent(i < 0 ? kv : kv.slice(0, i))] = i < 0 ? "1" : decodeURIComponent(kv.slice(i + 1)); } catch (e) {} });
+      return { id: id, q: q < 0 ? "" : raw.slice(q + 1), params: params, raw: raw };
+    }
+    var openedRaw = "";
+    function open(t, pre) {
       closeCurrent();
       title.innerHTML = "";
       title.appendChild(t.ic ? h("span", { "aria-hidden": "true", class: "g1t-title-ic", html: t.ic }) : h("span", { "aria-hidden": "true" }, t.e));
       title.appendChild(document.createTextNode(t.name));
-      current = t.make();
+      PARAMS = (pre && pre.params) || {};
+      try { current = t.make(); } finally { PARAMS = {}; }
       current.id = t.id;
       body.appendChild(current.el);
       picker.hidden = true;
       stage.hidden = false;
       root.setAttribute("data-open", t.id);
-      setHash(t.id);
+      setHash(t.id + (pre && pre.q ? "?" + pre.q : ""));
+      openedRaw = pre ? pre.raw : t.id;
       stage.scrollIntoView({ block: "start" });
       try { title.focus({ preventScroll: true }); } catch (e) {}
     }
@@ -3073,8 +3087,8 @@
       if (current.key && current.key(String(e.key).toLowerCase())) e.preventDefault();
     }
     function onHash() {
-      var id = (location.hash || "").slice(1), t = TOOLS.filter(function (x) { return x.id === id; })[0];
-      if (t && (!current || current.id !== id)) open(t);
+      var ph = parseHash(), t = TOOLS.filter(function (x) { return x.id === ph.id; })[0];
+      if (t && (!current || current.id !== ph.id || (ph.q && ph.raw !== openedRaw))) open(t, ph);
     }
     document.addEventListener("keydown", onKey);
     document.addEventListener("fullscreenchange", onFs);
@@ -3094,8 +3108,8 @@
         if (root.parentNode) root.parentNode.removeChild(root);
       }
     };
-    var hash = (location.hash || "").slice(1);
-    if (hash) mounted.open(hash);
+    var ph0 = parseHash(), t0 = TOOLS.filter(function (x) { return x.id === ph0.id; })[0];
+    if (t0) open(t0, ph0);
   }
 
   function unmount() {
