@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Grade 1 Music rubric · Grade 1 Music</title>
-    <meta name="description" content="Grade 1 Music rubric: Not Yet, Meeting, Mastering, with report card comment stems." />
+    <meta name="description" content="Grade 1 Music rubric and Term 1 / Term 2 assessment rubrics: Not Yet, Meeting, Mastering, with report card comment stems." />
     <meta name="theme-color" content="#5c3d8a" />
     <link rel="icon" type="image/svg+xml" href="/Grade-1-Music/favicon.svg" />
     <link rel="stylesheet" href="/Grade-1-Music/assets/styles-icPlV4t_.css" />
@@ -23,6 +23,9 @@
 }
 @media print { .site-updated-stamp { display: none !important; } }</style><script src="/Grade-1-Music/updated-stamp.js" data-repo="scaemrfung/Grade-1-Music"></script>
   <style>
+.rubric-jump{display:flex;flex-wrap:wrap;gap:8px}
+.term-title{font-size:22px;margin:24px 0 4px}
+h2[id],h3[id]{scroll-margin-top:16px}
 .rubric-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0 24px;border:1px solid var(--color-line);border-radius:var(--radius-lg);background:var(--color-paper);box-shadow:var(--shadow-paper)}
 .rubric-scroll:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 table.rubric{width:100%;min-width:620px;border-collapse:collapse;font-size:14.5px;line-height:1.45}
@@ -53,7 +56,8 @@ table.rubric td{width:27.33%}
   table.rubric tbody th{background:#f6f6f6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   table.rubric tr{break-inside:avoid}
   .note{box-shadow:none;border:0;padding:0;background:none;break-inside:avoid}
-  h2{break-after:avoid}
+  h2,h3{break-after:avoid}
+  .term-start{break-before:page}
   a{color:inherit;text-decoration:none}
 }
   </style>
@@ -64,9 +68,9 @@ table.rubric td{width:27.33%}
         <h1>Grade 1 Music rubric</h1>
         <p class="lead"><strong>Reporting outcome (every term):</strong> Students understand musical concepts and demonstrate musical skills.</p>
         <div class="gp-note"><strong>Scale:</strong> Not Yet · Meeting · Mastering (NY · M · Ma). Mastering means grade-level insight and transfer, not extra work. Score the music outcome, not behaviour.</div>
-        <div class="actions no-print"><button type="button" class="btn btn-ghost" onclick="window.print()">Print rubric</button></div>
+        <nav class="actions no-print rubric-jump" aria-label="On this page"><a class="btn btn-ghost" href="#overall">Overall rubric</a><a class="btn btn-ghost" href="#term-1">Term 1</a><a class="btn btn-ghost" href="#term-2">Term 2</a><a class="btn btn-ghost" href="#comment-stems">Comment stems</a><button type="button" class="btn btn-ghost" onclick="window.print()">Print rubric</button></nav>
 
-        <h2>Grade 1</h2>
+        <h2 id="overall">Overall rubric</h2>
         <div class="rubric-scroll" role="region" aria-label="Grade 1 music rubric" tabindex="0">
           <table class="rubric">
             <caption class="vh-sep">Grade 1 music rubric: four criteria at three levels</caption>
@@ -80,7 +84,40 @@ table.rubric td{width:27.33%}
           </table>
         </div>
 
-        <h2>Comment stems</h2>
+        <h2 id="assessments" class="term-start">Assessment rubrics (2 terms)</h2>
+        <div class="gp-note"><strong>Scale:</strong> Not Yet · Meeting · Mastering. Mastering = grade-level skill used with control and explained, not extra work. Score the music skill, not behaviour.</div>
+
+        <h3 id="term-1" class="term-title">Term 1</h3>
+        <div class="rubric-scroll" role="region" aria-label="Grade 1 music assessment rubrics, Term 1" tabindex="0">
+          <table class="rubric">
+            <caption class="vh-sep">Grade 1 music assessment rubrics, Term 1</caption>
+            <thead><tr><th scope="col">Assessment</th><th scope="col">Not Yet</th><th scope="col">Meeting</th><th scope="col">Mastering</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">O - Music - Steady Beat</th><td data-level="Not Yet">I can&#x27;t keep the beat yet, even when we do it together.</td><td data-level="Meeting">I pat, step, or tap a steady beat with the song.</td><td data-level="Mastering">I keep the beat on my own, even when the song speeds up or slows down.</td></tr>
+            <tr><th scope="row">O - Music - Echo Rhythms</th><td data-level="Not Yet">I can&#x27;t clap the rhythm back yet.</td><td data-level="Meeting">I clap back ta and ti-ti rhythms the right way.</td><td data-level="Mastering">I clap back new rhythms right away and can make one for the class to echo.</td></tr>
+            <tr><th scope="row">O - Music - Singing a Class Song</th><td data-level="Not Yet">I&#x27;m still learning the words and the tune.</td><td data-level="Meeting">I sing the song with the right words and mostly the right notes.</td><td data-level="Mastering">I sing in tune, clearly, and can sing a part on my own.</td></tr>
+            <tr><th scope="row">O - Music - High/Low Pitch</th><td data-level="Not Yet">I can&#x27;t tell high from low yet.</td><td data-level="Meeting">I show high and low sounds and sing so-mi patterns.</td><td data-level="Mastering">I sing so-mi patterns in tune and can show or make up my own.</td></tr>
+            <tr><th scope="row">C - Music - Loud/Soft &amp; Fast/Slow</th><td data-level="Not Yet">I don&#x27;t show what I hear yet.</td><td data-level="Meeting">I show loud/soft and fast/slow with my body and tell what I hear.</td><td data-level="Mastering">I explain what changed in the music and why it sounds that way.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="term-2" class="term-title">Term 2</h3>
+        <div class="rubric-scroll" role="region" aria-label="Grade 1 music assessment rubrics, Term 2" tabindex="0">
+          <table class="rubric">
+            <caption class="vh-sep">Grade 1 music assessment rubrics, Term 2</caption>
+            <thead><tr><th scope="col">Assessment</th><th scope="col">Not Yet</th><th scope="col">Meeting</th><th scope="col">Mastering</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">O - Music - Reading Rhythm Cards</th><td data-level="Not Yet">I can&#x27;t read the rhythm cards yet.</td><td data-level="Meeting">I clap four-beat cards with ta, ti-ti, and rest correctly.</td><td data-level="Mastering">I read new cards on my own and can help a friend read one.</td></tr>
+            <tr><th scope="row">O - Music - Instrument Pattern</th><td data-level="Not Yet">I can&#x27;t play the pattern yet, even with help.</td><td data-level="Meeting">I play the pattern on my instrument, on the beat.</td><td data-level="Mastering">I play the pattern with control and can change it a little on purpose.</td></tr>
+            <tr><th scope="row">O - Music - Singing with Expression</th><td data-level="Not Yet">I can&#x27;t change how I sing yet.</td><td data-level="Meeting">I sing loud/soft or fast/slow when the music asks.</td><td data-level="Mastering">I choose how to sing a part and can tell why it fits the song.</td></tr>
+            <tr><th scope="row">C - Music - Listening Response</th><td data-level="Not Yet">I can&#x27;t tell about the music yet.</td><td data-level="Meeting">I tell if the music is fast/slow, loud/soft, or high/low, and how it makes me feel.</td><td data-level="Mastering">I explain what I hear and connect it to how the music feels, using music words.</td></tr>
+            <tr><th scope="row">P - Music - Create &amp; Perform</th><td data-level="Not Yet">I can&#x27;t make or play my own pattern yet.</td><td data-level="Meeting">I make a four-beat rhythm or so-mi pattern and perform it.</td><td data-level="Mastering">I make a pattern on purpose, perform it with control, and explain my choices.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="comment-stems">Comment stems</h2>
         <div class="note">
           <ul>
             <li><strong>Not Yet:</strong> “[Name] is still building [skill] and is not yet doing it successfully in class. Next step: …”</li>
