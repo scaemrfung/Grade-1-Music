@@ -26,6 +26,12 @@
 .rubric-jump{display:flex;flex-wrap:wrap;gap:8px}
 .term-title{font-size:22px;margin:24px 0 4px}
 h2[id],h3[id]{scroll-margin-top:16px}
+.ocp-legend{background:var(--color-paper);border:1px solid var(--color-line);border-radius:var(--radius-lg);box-shadow:var(--shadow-paper);margin:12px 0 8px;padding:12px 16px;font-size:14px}
+.ocp-title{margin:0 0 6px}
+.ocp-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.ocp-list li{margin:0}
+.ocp-key{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 4px;border-radius:6px;background:var(--color-primary);color:var(--color-primary-fg);font-weight:700;font-size:12px}
+@media (max-width:560px){.ocp-list{flex-direction:column}}
 .rubric-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0 24px;border:1px solid var(--color-line);border-radius:var(--radius-lg);background:var(--color-paper);box-shadow:var(--shadow-paper)}
 .rubric-scroll:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 table.rubric{width:100%;min-width:620px;border-collapse:collapse;font-size:14.5px;line-height:1.45}
@@ -57,6 +63,8 @@ table.rubric td{width:27.33%}
   table.rubric tr{break-inside:avoid}
   .note{box-shadow:none;border:0;padding:0;background:none;break-inside:avoid}
   h2,h3{break-after:avoid}
+  .ocp-legend{box-shadow:none;background:none;border:1px solid #999;break-inside:avoid}
+  .ocp-key{background:#eee!important;color:#000!important;border:1px solid #999;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .term-start{break-before:page}
   a{color:inherit;text-decoration:none}
 }
@@ -86,6 +94,15 @@ table.rubric td{width:27.33%}
 
         <h2 id="assessments" class="term-start">Assessment rubrics (2 terms)</h2>
         <div class="gp-note"><strong>Scale:</strong> Not Yet · Meeting · Mastering. Mastering = grade-level skill used with control and explained, not extra work. Score the music skill, not behaviour.</div>
+
+        <div class="ocp-legend" role="note" aria-label="Assessment type legend">
+          <p class="ocp-title"><strong>How each assessment is gathered:</strong></p>
+          <ul class="ocp-list">
+            <li><span class="ocp-key">O</span> = <strong>Observation</strong> (I watch and listen as students perform)<span class="vh-sep"> · </span></li>
+            <li><span class="ocp-key">C</span> = <strong>Conversation</strong> (students explain or answer questions)<span class="vh-sep"> · </span></li>
+            <li><span class="ocp-key">P</span> = <strong>Product</strong> (students create or hand in work)</li>
+          </ul>
+        </div>
 
         <h3 id="term-1" class="term-title">Term 1</h3>
         <div class="rubric-scroll" role="region" aria-label="Grade 1 music assessment rubrics, Term 1" tabindex="0">
