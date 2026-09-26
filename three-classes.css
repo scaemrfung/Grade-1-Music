@@ -44,3 +44,19 @@
 .c3-bring { margin: 4px 0 6px; padding: 6px 10px; border-radius: 10px; background: var(--color-surface, #f7f2fb); border: 1px dashed var(--color-line); font-size: 14px; }
 @media print { .c3-bring { background: none; } }
 .c3-h-sep, .c3-h-l { color: var(--color-muted); font-weight: 600; }
+/* "Use in class" Studio tool links inside each class */
+.c3-tools { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: var(--color-primary-soft, #e8dff5); border: 1px solid var(--color-line); }
+.c3-tools-h { margin: 0 0 4px; font-size: 12px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary, #5c3d8a); }
+.c3-tools-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.c3-tool { font-size: 14.5px; line-height: 1.4; min-width: 0; overflow-wrap: anywhere; }
+.c3-tool-a { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--color-primary, #5c3d8a); text-decoration: underline; text-underline-offset: 2px; min-height: 32px; margin-right: 6px; }
+.c3-tool-a:hover { text-decoration-thickness: 2px; }
+.c3-tool-a:focus-visible { outline: 2px solid var(--color-accent, #c4a035); outline-offset: 2px; border-radius: 4px; }
+.c3-tool-e { font-size: 18px; line-height: 1; text-decoration: none; }
+.c3-tool-how { color: var(--color-fg); }
+@media (max-width: 520px) { .c3-tool-a { display: flex; margin: 0; } .c3-tool { font-size: 14px; } }
+@media print {
+  .c3-tools { background: none; border: 1px solid #999; break-inside: avoid; }
+  .c3-tool-a { color: #000; min-height: 0; }
+  .c3-tool-a::after { content: " (" attr(data-print) ")"; font-weight: 400; font-size: 11px; color: #333; word-break: break-all; }
+}
