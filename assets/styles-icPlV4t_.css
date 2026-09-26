@@ -11,3 +11,6 @@
 .step-card,.check-card{position:relative;cursor:pointer}
 .card-toggle{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
 .step-card:has(.card-toggle:focus-visible),.check-card:has(.card-toggle:focus-visible){outline:2px solid var(--color-primary);outline-offset:2px}
+
+/* lesson number pill: number drawn from data-n so text readers get the hidden "Week N · " label instead */
+.step-num[data-n]:before{content:attr(data-n)}

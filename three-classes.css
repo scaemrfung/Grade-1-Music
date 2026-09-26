@@ -60,3 +60,5 @@
   .c3-tool-a { color: #000; min-height: 0; }
   .c3-tool-a::after { content: " (" attr(data-print) ")"; font-weight: 400; font-size: 11px; color: #333; word-break: break-all; }
 }
+/* Section heading is a plain h2 (no longer inside <summary>) */
+.c3-h2 { margin: 0 0 4px; }
