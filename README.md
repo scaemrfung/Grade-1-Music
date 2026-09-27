@@ -4,7 +4,7 @@ Weekly Alberta Grade 1 music lessons you can teach from the page, each split int
 
 **Live site:** https://scaemrfung.github.io/Grade-1-Music/
 
-- 36 weeks, six units, 3 classes per week
+- 36 weeks in nine monthly units (GAMEPLAN order), 3 classes per week; three catch-up weeks in the school calendar
 - Teacher / student toggle
 - Public-domain folk-song scores (so–mi–la) you can play in the browser
 - Companion to GAMEPLAN Grade 1 (Kriske & DeLelles) — we follow the public year, not a scan of the book

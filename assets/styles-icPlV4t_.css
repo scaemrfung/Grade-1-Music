@@ -14,3 +14,5 @@
 
 /* lesson number pill: number drawn from data-n so text readers get the hidden "Week N · " label instead */
 .step-num[data-n]:before{content:attr(data-n)}
+
+.shell>main{min-width:0}
