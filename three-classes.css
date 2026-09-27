@@ -62,3 +62,4 @@
 }
 /* Section heading is a plain h2 (no longer inside <summary>) */
 .c3-h2 { margin: 0 0 4px; }
+.c3-gpref{margin:6px 0 10px;padding:6px 10px;border-left:3px solid #00897b;background:rgba(0,137,123,.07);font-size:14px;border-radius:4px}

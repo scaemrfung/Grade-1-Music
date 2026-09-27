@@ -2,8 +2,8 @@
    SCHOOL-YEAR SETTINGS — Grade 1 Music (the one file to review each August)
    Places Weeks 1–36 on the real EIPS calendar (breaks skipped, three catch-up
    weeks, short weeks labelled) and works out each Grade 1 class's music days.
-   Short-week rule: 2 classes that week -> teach Class 1 and Class 2 (drop
-   Class 3). 1 class -> teach Class 1 only.
+   Short-week rule: 2 classes that week -> teach Day 1 and Day 2 (drop
+   Day 3). 1 class -> teach Day 1 only.
    Class days come from Patrick_Fung_Timetable_2026-2027.docx — edit
    MUSIC_CLASSES below if the timetable changes.
    ========================================================================== */
@@ -221,7 +221,7 @@
       var dates = w.days.filter(function (k) { return MUSIC_CLASSES[c].indexOf(dow(parse(k))) >= 0; });
       var missed = w.off.filter(function (o) { return MUSIC_CLASSES[c].indexOf(dow(parse(o.date))) >= 0; });
       var count = dates.length;
-      var rule = count >= 3 ? "All 3 classes" : count === 2 ? "Teach Class 1 and Class 2 (drop Class 3)" : count === 1 ? "Teach Class 1 only" : "No music this week";
+      var rule = count >= 3 ? "All 3 classes" : count === 2 ? "Teach Day 1 and Day 2 (drop Day 3)" : count === 1 ? "Teach Day 1 only" : "No music this week";
       return { cls: c, count: count, rule: rule,
         dates: dates.map(function (k, i) { return { date: k, label: dayLabel(parse(k)), classNo: i + 1 }; }),
         missed: missed.map(function (o) { return o.label + " (" + o.why + ")"; }) };
