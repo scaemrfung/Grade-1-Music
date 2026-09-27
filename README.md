@@ -10,3 +10,11 @@ Weekly Alberta Grade 1 music lessons you can teach from the page, each split int
 - Companion to GAMEPLAN Grade 1 (Kriske & DeLelles) — we follow the public year, not a scan of the book
 
 No login. Progress stays on this device.
+
+## "Updated" stamp and "Mr. Fung's sites" footer
+
+`updated-stamp.js` adds the "Updated … MT" stamp and the shared "Mr. Fung's sites" footer to every page. The date is baked into the file (`SITE_UPDATED`), so pages make no GitHub API calls. Before committing a change, run:
+
+    sh tools/bake-updated.sh && git add updated-stamp.js
+
+The footer never links to Sub Day Plans (student-facing site).
