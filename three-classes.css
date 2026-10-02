@@ -54,10 +54,19 @@
 .c3-tool-a:focus-visible { outline: 2px solid var(--color-accent, #c4a035); outline-offset: 2px; border-radius: 4px; }
 .c3-tool-e { font-size: 18px; line-height: 1; text-decoration: none; }
 .c3-tool-how { color: var(--color-fg); }
+.c3-vids { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: #fff; border: 1px dashed var(--color-line); min-width: 0; }
+.c3-vids-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.c3-vids-list li { font-size: 14.5px; line-height: 1.4; min-width: 0; overflow-wrap: anywhere; }
+.c3-vids-list a { font-weight: 700; color: var(--color-primary, #5c3d8a); text-decoration: underline; text-underline-offset: 2px; }
+.c3-vids-list .book-video-src { color: var(--color-muted); font-size: 13px; }
+@media (max-width: 520px) { .c3-vids-list li { font-size: 14px; } }
 @media (max-width: 520px) { .c3-tool-a { display: flex; margin: 0; } .c3-tool { font-size: 14px; } }
 @media print {
   .c3-tools { background: none; border: 1px solid #999; break-inside: avoid; }
   .c3-tool-a { color: #000; min-height: 0; }
+  .c3-vids { background: none; border: 1px solid #999; break-inside: avoid; }
+  .c3-vids-list a { color: #000; }
+  .c3-vids-list a::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 11px; color: #333; word-break: break-all; }
   .c3-tool-a::after { content: " (" attr(data-print) ")"; font-weight: 400; font-size: 11px; color: #333; word-break: break-all; }
 }
 /* Section heading is a plain h2 (no longer inside <summary>) */
