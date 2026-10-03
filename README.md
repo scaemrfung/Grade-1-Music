@@ -11,10 +11,10 @@ Weekly Alberta Grade 1 music lessons you can teach from the page, each split int
 
 No login. Progress stays on this device.
 
-## "Updated" stamp and "Mr. Fung's sites" footer
+## "Updated" stamp
 
-`updated-stamp.js` adds the "Updated … MT" stamp and the shared "Mr. Fung's sites" footer to every page. The date is baked into the file (`SITE_UPDATED`), so pages make no GitHub API calls. Before committing a change, run:
+`updated-stamp.js` adds the "Updated … MT" stamp to every page. The date is baked into the file (`SITE_UPDATED`), so pages make no GitHub API calls. Before committing a change, run:
 
     sh tools/bake-updated.sh && git add updated-stamp.js
 
-The footer never links to Sub Day Plans (student-facing site).
+**Standing rule (Oct 3, 2026): no other-sites footer.** Do not add a "Mr. Fung's sites" footer or any list of links to Mr. Fung's other sites at the bottom of any page (removed at the request of Mr. Fung; the footer code and `.mf-sites` styles are gone). Navigation links inside this site are fine.
