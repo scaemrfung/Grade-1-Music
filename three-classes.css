@@ -72,3 +72,10 @@
 /* Section heading is a plain h2 (no longer inside <summary>) */
 .c3-h2 { margin: 0 0 4px; }
 .c3-gpref{margin:6px 0 10px;padding:6px 10px;border-left:3px solid #00897b;background:rgba(0,137,123,.07);font-size:14px;border-radius:4px}
+/* "Open this lesson in Chalkie" link (data: chalkie-links.json) */
+.c3-chalkie { margin: 6px 0 12px; }
+.c3-chalkie-a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--color-primary); background: var(--color-primary); color: #fff; font-weight: 700; font-size: 14.5px; line-height: 1.2; text-decoration: none; }
+.c3-chalkie-a:hover { filter: brightness(1.12); text-decoration: none; }
+.c3-chalkie-a:focus-visible { outline: 2px solid var(--color-accent, #c4a035); outline-offset: 2px; }
+.c3-chalkie-x { font-size: 15px; line-height: 1; }
+@media print { .c3-chalkie { display: none !important; } }
