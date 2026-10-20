@@ -2,7 +2,7 @@
    SITE_UPDATED is baked in at commit time (run tools/bake-updated.sh before committing),
    so pages make no GitHub API calls. If it is ever empty, the page's Last-Modified date is used. */
 (function () {
-  var SITE_UPDATED = "2026-10-20T02:51:11Z";
+  var SITE_UPDATED = "2026-10-20T11:49:36Z";
 
   function formatStamp(iso) {
     var d = new Date(iso);
