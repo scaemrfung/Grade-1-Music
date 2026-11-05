@@ -26,6 +26,7 @@
 .song-stack{display:flex;flex-direction:column;gap:14px;margin:18px 0 28px}
 .song-card h2{scroll-margin-top:16px}
 .song-audio{width:100%;margin:10px 0 6px;max-width:520px}
+.song-video{width:100%;margin:10px 0 6px;max-width:640px;background:#000;border-radius:12px}
 .song-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .rubric-jump{display:flex;flex-wrap:wrap;gap:8px}
 @media print{.sidebar,.topbar,.no-print{display:none!important}}
@@ -135,6 +136,10 @@
           <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">
             <a href="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">Download track</a>
           </audio>
+          <p class="soft-kicker" style="margin-top:8px">Lyric video (music only)</p>
+          <video class="song-video" controls preload="metadata" playsinline src="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">
+            <a href="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">Download lyric video</a>
+          </video>
           <div class="gp-note">Room for lyrics, links and notes.</div>
         </article>
         <article class="score-card song-card" id="song-6">
