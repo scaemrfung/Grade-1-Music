@@ -1,44 +1,198 @@
 <!DOCTYPE html>
-<html lang="en" class="antialiased">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Christmas 2026 · Grade 1 Music</title>
-    <meta name="description" content="Christmas 2026 concert songs for Grade 1 Music, with Canva slides for each song." />
+    <title>Christmas Concert 2026</title>
+    <meta name="description" content="Christmas Concert 2026 songs with practice tracks and Canva slides." />
     <meta name="theme-color" content="#5c3d8a" />
     <link rel="icon" type="image/svg+xml" href="/Grade-1-Music/favicon.svg" />
-    <link rel="stylesheet" href="/Grade-1-Music/assets/styles-icPlV4t_.css" />
-    <link rel="stylesheet" href="/Grade-1-Music/theme-colors.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..700;1,400..700&family=Newsreader:opsz,wght@6..72,500..700&display=swap" />
-  <style>.site-updated-stamp {
-  font-size: 11px;
-  line-height: 1.3;
-  color: #6b7280;
-  text-align: right;
-  padding: 3px 16px;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-  background: transparent;
-}
-@media print { .site-updated-stamp { display: none !important; } }</style><script src="/Grade-1-Music/updated-stamp.js" data-repo="scaemrfung/Grade-1-Music"></script>
-  <style>
-.song-stack{display:flex;flex-direction:column;gap:14px;margin:18px 0 28px}
-.song-card h2{scroll-margin-top:16px}
-.song-audio{width:100%;margin:10px 0 6px;max-width:520px}
-.song-video{width:100%;margin:10px 0 6px;max-width:640px;background:#000;border-radius:12px}
-.song-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.rubric-jump{display:flex;flex-wrap:wrap;gap:8px}
-@media print{.sidebar,.topbar,.no-print{display:none!important}}
-  </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..700;1,400..700&amp;family=Newsreader:opsz,wght@6..72,500..700&amp;display=swap" />
+    <style>
+      :root {
+        --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+        --font-serif: "Newsreader", Georgia, serif;
+        --bg: #f7f1e8;
+        --paper: #fffdf8;
+        --fg: #1f1a24;
+        --muted: #5c5566;
+        --subtle: #7a7385;
+        --line: rgba(45, 30, 70, 0.12);
+        --primary: #5c3d8a;
+        --primary-fg: #fffdf8;
+        --primary-soft: #efe6f8;
+        --accent: #c4a035;
+        --radius: 16px;
+        --shadow: 0 10px 28px rgba(45, 30, 70, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background:
+          radial-gradient(1200px 500px at 50% -10%, rgba(92, 61, 138, 0.12), transparent 60%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+      .page {
+        width: min(760px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 56px;
+      }
+      .hero {
+        text-align: center;
+        margin: 8px 0 22px;
+      }
+      .kicker {
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--subtle);
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      h1 {
+        font-family: var(--font-serif);
+        font-weight: 650;
+        font-size: clamp(1.9rem, 5vw, 2.6rem);
+        line-height: 1.15;
+        margin: 0 0 12px;
+        color: var(--primary);
+      }
+      .lead {
+        color: var(--muted);
+        max-width: 38rem;
+        margin: 0 auto;
+        font-size: 17px;
+      }
+      .song-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin: 22px 0 8px;
+      }
+      .song-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin: 18px 0 28px;
+      }
+      .score-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px 18px 16px;
+      }
+      .score-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .song-card h2 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        font-family: var(--font-sans);
+        scroll-margin-top: 16px;
+      }
+      .soft-kicker {
+        color: var(--subtle);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .btn {
+        font: inherit;
+        border: 0;
+        border-radius: 999px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 11px 16px;
+        font-size: 14.5px;
+        font-weight: 650;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: var(--primary-fg);
+      }
+      .btn-primary:hover { filter: brightness(1.06); }
+      .btn-ghost {
+        color: var(--fg);
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .btn-ghost:hover { background: var(--primary-soft); }
+      .song-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .song-audio {
+        width: 100%;
+        margin: 10px 0 6px;
+        max-width: 100%;
+      }
+      .song-video {
+        width: 100%;
+        margin: 10px 0 6px;
+        max-width: 100%;
+        background: #000;
+        border-radius: 12px;
+      }
+      .gp-note {
+        border-left: 3px solid var(--primary);
+        background: var(--primary-soft);
+        color: var(--fg);
+        border-radius: 0 12px 12px 0;
+        margin: 12px 0 0;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+      footer.page-foot {
+        text-align: center;
+        color: var(--subtle);
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      @media (max-width: 520px) {
+        .page { width: min(100%, calc(100% - 24px)); padding-top: 20px; }
+        .score-card { padding: 14px; }
+        .song-card h2 { font-size: 19px; }
+        .btn { min-height: 42px; padding: 10px 14px; font-size: 14px; }
+      }
+      @media print {
+        body { background: #fff; }
+        .no-print { display: none !important; }
+        .score-card { box-shadow: none; break-inside: avoid; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"><a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-paper focus:px-3 focus:py-2">Skip to content</a><header class="topbar"><div class="brand-wrap"><button type="button" class="menu-btn" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><a href="/Grade-1-Music/" class="brand"><div class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18.5a2.5 2.5 0 1 1-2.6-2.5" stroke="#FBF6EE" stroke-width="1.7" stroke-linecap="round"></path><path d="M18 15.5a2.5 2.5 0 1 1-2.6-2.5" stroke="#FBF6EE" stroke-width="1.7" stroke-linecap="round"></path><path d="M9 16V7.5l9-2V13" stroke="#FBF6EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div><div class="brand-title">Grade 1 Music</div><div class="brand-sub">Alberta · 36 weekly lessons</div></div></a></div></header><div class="shell"><aside class="sidebar"><nav aria-label="Classroom"><div class="nav-label">Classroom</div><a class="nav-link" href="/Grade-1-Music/"><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg></span>Course map</a><a href="/Grade-1-Music/how-to" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>How to teach</a><a href="/Grade-1-Music/studio" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-piano" aria-hidden="true"><path d="M18.5 8c-1.4 0-2.6-.8-3.2-2A6.87 6.87 0 0 0 2 9v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8.5C22 9.6 20.4 8 18.5 8"></path><path d="M2 14h20"></path><path d="M6 14v4"></path><path d="M10 14v4"></path><path d="M14 14v4"></path><path d="M18 14v4"></path></svg></span>Practice studio</a><a href="/Grade-1-Music/books" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></span>Story suggestions</a><a href="/Grade-1-Music/letter" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg></span>Family letter</a><a href="/Grade-1-Music/outcomes" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-music" aria-hidden="true"><path d="M21 15V6"></path><path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path><path d="M12 12H3"></path><path d="M16 6H3"></path><path d="M12 18H3"></path></svg></span>Alberta POS</a><a href="/Grade-1-Music/rubric.html" class="nav-link"><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></span>Music rubric</a><a href="/Grade-1-Music/year.html" class="nav-link"><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></span>Year at a glance</a><a href="/Grade-1-Music/christmas-2026.html" class="nav-link active"><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2" aria-hidden="true"><circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"></path></svg></span>Christmas 2026</a><div class="nav-label">Units</div><a href="/Grade-1-Music/unit/voices-pulse" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Voices &amp; Pulse</a><a href="/Grade-1-Music/unit/sound-silence-timbre" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Sound and Silence</a><a href="/Grade-1-Music/unit/ta-tempo-contour" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Ta, Tempo &amp; Contour</a><a href="/Grade-1-Music/unit/phrase-dynamics" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Introduction &amp; Phrase</a><a href="/Grade-1-Music/unit/mallets-bordun-reading" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>So–Mi, Notes &amp; Reading</a><a href="/Grade-1-Music/unit/titi-la-phrase" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Ti-ti, La &amp; Phrases</a><a href="/Grade-1-Music/unit/form-meter-ostinato" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>SML, Dynamics, ABA &amp; Timbre</a><a href="/Grade-1-Music/unit/timbre-repeat-aba-68" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>Ostinato, ABA &amp; Pitched Percussion</a><a href="/Grade-1-Music/unit/create-share" class="nav-link "><span class="nav-ico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>SML Check, Ostinato &amp; Singing Games</a><div class="nav-label">This unit</div><p class="nav-meta">0 of 36 stamped</p><a href="/Grade-1-Music/week/1" class="nav-link "><span class="nav-ico">01</span><span class="vh-sep"> </span>Music room</a><a href="/Grade-1-Music/week/2" class="nav-link "><span class="nav-ico">02</span><span class="vh-sep"> </span>Pulse in the body</a><a href="/Grade-1-Music/week/3" class="nav-link "><span class="nav-ico">03</span><span class="vh-sep"> </span>Pulse as a group</a><a href="/Grade-1-Music/week/4" class="nav-link "><span class="nav-ico">04</span><span class="vh-sep"> </span>Up and down</a></nav></aside><main class="main" id="main">
-        <p class="kicker">Concert · Christmas 2026</p>
-        <h1>Christmas 2026</h1>
-        <p class="lead">Concert songs for Grade 1 Music. Open the Canva slides for each song, or play the practice track when one is posted. Add lyrics, links and notes here as they are ready.</p>
+    <main class="page" id="main">
+      <header class="hero">
+        <p class="kicker">Concert · 2026</p>
+        <h1>Christmas Concert 2026</h1>
+        <p class="lead">Practice tracks and Canva slides for each concert song. Open the slides, play a track, or jump to a song below.</p>
+      </header>
 
-        <nav class="actions no-print rubric-jump" aria-label="Songs on this page">
+<nav class="song-jump no-print" aria-label="Songs on this page">
           <a class="btn btn-ghost" href="#song-1">1. On A Night Like No Others</a><a class="btn btn-ghost" href="#song-2">2. Journey to Bethlehem</a><a class="btn btn-ghost" href="#song-3">3. Away In a Manger/Silent Night</a><a class="btn btn-ghost" href="#song-4">4. Angels We Have Heard On High</a><a class="btn btn-ghost" href="#song-5">5. When Love Was Born</a><a class="btn btn-ghost" href="#song-6">6. He is Love, He is Light</a>
         </nav>
         <div class="song-stack">
@@ -163,7 +317,7 @@
           <div class="gp-note">Room for lyrics, links and notes.</div>
         </article>
         </div>
-      </main></div></div>
-    <script>(function(){var btn=document.querySelector(".menu-btn");if(!btn)return;var ov=null;var menuSvg=btn.innerHTML;var closeSvg='<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>';function close(){if(ov){ov.remove();ov=null}btn.innerHTML=menuSvg;btn.setAttribute("aria-label","Open menu")}btn.addEventListener("click",function(){if(ov){close();return}ov=document.createElement("div");ov.className="nav-overlay";var inner=document.createElement("div");inner.className="nav-overlay-inner";inner.appendChild(document.querySelector(".sidebar nav").cloneNode(true));inner.addEventListener("click",function(e){e.stopPropagation()});ov.appendChild(inner);ov.addEventListener("click",close);document.getElementById("root").insertBefore(ov,document.querySelector(".shell"));btn.innerHTML=closeSvg;btn.setAttribute("aria-label","Close menu")})})();</script>
+
+    </main>
   </body>
 </html>
