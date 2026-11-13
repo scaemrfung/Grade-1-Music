@@ -10,311 +10,164 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..700;1,400..700&amp;family=Newsreader:opsz,wght@6..72,500..700&amp;display=swap" />
-    <style>
-      :root {
-        --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
-        --font-serif: "Newsreader", Georgia, serif;
-        --bg: #f8efe9;
-        --paper: #fffaf7;
-        --fg: #2c1818;
-        --muted: #5e3a3c;
-        --subtle: #6e4548;
-        --line: rgba(140, 48, 56, 0.16);
-        --primary: #8e2f3c;
-        --primary-fg: #fffaf7;
-        --primary-soft: #f8e4e4;
-        --accent: #b94a4a;
-        --radius: 16px;
-        --shadow: 0 10px 28px rgba(120, 36, 42, 0.08);
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        font-family: var(--font-sans);
-        background:
-          radial-gradient(1200px 500px at 50% -10%, rgba(168, 56, 68, 0.14), transparent 60%),
-          var(--bg);
-        color: var(--fg);
-        line-height: 1.55;
-        min-height: 100vh;
-      }
-      .page {
-        width: min(760px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 28px 0 56px;
-      }
-      .hero {
-        text-align: center;
-        margin: 8px 0 22px;
-      }
-      .kicker {
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--subtle);
-        margin: 0 0 10px;
-        font-size: 12px;
-        font-weight: 700;
-      }
-      h1 {
-        font-family: var(--font-serif);
-        font-weight: 650;
-        font-size: clamp(1.9rem, 5vw, 2.6rem);
-        line-height: 1.15;
-        margin: 0 0 12px;
-        color: var(--primary);
-      }
-      .lead {
-        color: var(--muted);
-        max-width: 38rem;
-        margin: 0 auto;
-        font-size: 17px;
-      }
-      .song-jump {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-        margin: 22px 0 8px;
-      }
-      .song-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin: 18px 0 28px;
-      }
-      .score-card {
-        background: var(--paper);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 18px 18px 16px;
-      }
-      .score-head {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 8px;
-      }
-      .song-card h2 {
-        margin: 0 0 8px;
-        font-size: 22px;
-        font-family: var(--font-sans);
-        scroll-margin-top: 16px;
-      }
-      .soft-kicker {
-        color: var(--subtle);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        font-size: 11px;
-        font-weight: 700;
-      }
-      .btn {
-        font: inherit;
-        border: 0;
-        border-radius: 999px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        min-height: 44px;
-        padding: 11px 16px;
-        font-size: 14.5px;
-        font-weight: 650;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .btn-primary {
-        background: var(--primary);
-        color: var(--primary-fg);
-      }
-      .btn-primary:hover { filter: brightness(1.06); }
-      .btn-ghost {
-        color: var(--fg);
-        border: 1px solid var(--line);
-        background: #fffaf7;
-      }
-      .btn-ghost:hover { background: var(--primary-soft); }
-      .song-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
-      .song-audio {
-        width: 100%;
-        margin: 10px 0 6px;
-        max-width: 100%;
-      }
-      .song-video {
-        width: 100%;
-        margin: 10px 0 6px;
-        max-width: 100%;
-        background: #000;
-        border-radius: 12px;
-      }
-      .gp-note {
-        border-left: 3px solid var(--primary);
-        background: var(--primary-soft);
-        color: var(--fg);
-        border-radius: 0 12px 12px 0;
-        margin: 12px 0 0;
-        padding: 10px 14px;
-        font-size: 14px;
-      }
-      footer.page-foot {
-        text-align: center;
-        color: var(--subtle);
-        font-size: 12px;
-        margin-top: 8px;
-      }
-      @media (max-width: 520px) {
-        .page { width: min(100%, calc(100% - 24px)); padding-top: 20px; }
-        .score-card { padding: 14px; }
-        .song-card h2 { font-size: 19px; }
-        .btn { min-height: 42px; padding: 10px 14px; font-size: 14px; }
-      }
-      @media print {
-        body { background: #fff; }
-        .no-print { display: none !important; }
-        .score-card { box-shadow: none; break-inside: avoid; }
-      }
-    </style>
+    <link rel="stylesheet" href="/Grade-1-Music/christmas-2026.css" />
   </head>
-  <body>
+  <body class="theme-red">
     <main class="page" id="main">
       <header class="hero">
         <p class="kicker">Concert · 2026</p>
         <h1>Christmas Concert 2026</h1>
         <p class="lead">Practice tracks and Canva slides for each concert song. Open the slides, play a track, or jump to a song below.</p>
-        <nav class="song-jump no-print" aria-label="Other concert page" style="margin-top:14px;margin-bottom:0">
-          <a class="btn btn-ghost" href="/Grade-1-Music/christmas-2026-div2.html">Div. 2 (Grades 3-6)</a>
-        </nav>
+        <div class="div-link no-print">
+          <a class="btn" href="/Grade-1-Music/christmas-2026-div2.html">Div. 2 (Grades 3-6)</a>
+        </div>
       </header>
 
-<nav class="song-jump no-print" aria-label="Songs on this page">
-          <a class="btn btn-ghost" href="#song-1">1. On A Night Like No Others</a><a class="btn btn-ghost" href="#song-2">2. Journey to Bethlehem</a><a class="btn btn-ghost" href="#song-3">3. Away In a Manger/Silent Night</a><a class="btn btn-ghost" href="#song-4">4. Angels We Have Heard On High</a><a class="btn btn-ghost" href="#song-5">5. When Love Was Born</a><a class="btn btn-ghost" href="#song-6">6. He is Love, He is Light</a>
-        </nav>
-        <div class="song-stack">
+      <nav class="song-jump no-print" aria-label="Songs on this page">
+        <a class="btn" href="#song-1">1. On A Night Like No Others</a><a class="btn" href="#song-2">2. Journey to Bethlehem</a><a class="btn" href="#song-3">3. Away In a Manger/Silent Night</a><a class="btn" href="#song-4">4. Angels We Have Heard On High</a><a class="btn" href="#song-5">5. When Love Was Born</a><a class="btn" href="#song-6">6. He is Love, He is Light</a>
+      </nav>
+      <div class="song-stack">
         <article class="score-card song-card" id="song-1">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">1</span>
             <div>
-              <p class="soft-kicker">Song 1</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">On A Night Like No Others</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/kIqGZwYDJ-0gGBK" target="_blank" rel="noopener">Open slides</a>
-              <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3" download>Track</a>
+              <h2>On A Night Like No Others</h2>
             </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3">Download track</a>
-          </audio>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/kIqGZwYDJ-0gGBK" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3" download>Track</a>
+          </div>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Track</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/on-a-night-like-no-other.mp3">Download track</a>
+              </audio>
+            </div>
+          </div>
         </article>
         <article class="score-card song-card" id="song-2">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">2</span>
             <div>
-              <p class="soft-kicker">Song 2</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">Journey to Bethlehem</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/o-zgsMmrDGVY8tD" target="_blank" rel="noopener">Open slides</a>
-              <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3" download>Track</a>
+              <h2>Journey to Bethlehem</h2>
             </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3">Download track</a>
-          </audio>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/o-zgsMmrDGVY8tD" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3" download>Track</a>
+          </div>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Track</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/journey-to-bethlehem.mp3">Download track</a>
+              </audio>
+            </div>
+          </div>
         </article>
-                <article class="score-card song-card" id="song-3">
+        <article class="score-card song-card" id="song-3">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">3</span>
             <div>
-              <p class="soft-kicker">Song 3</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">Away In a Manger/Silent Night</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/Z6jCn4-oxyC0DY5" target="_blank" rel="noopener">Open slides</a>
+              <h2>Away In a Manger/Silent Night</h2>
             </div>
           </div>
-          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
-          <div class="song-actions no-print" style="margin-bottom:4px">
-            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3" download>Track · Part 1 (music only)</a>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/Z6jCn4-oxyC0DY5" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3" download>Track · Part 1 (music only)</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3" download>Track · Part 2 (with singing)</a>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3">Download track part 1 (music only)</a>
-          </audio>
-          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
-          <div class="song-actions no-print" style="margin-bottom:4px">
-            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Part 1 (music only)</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-1.mp3">Download track part 1 (music only)</a>
+              </audio>
+            </div>
+            <div>
+              <p class="track-label">Part 2 (with singing)</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3">Download track part 2 (with singing)</a>
+              </audio>
+            </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/away-in-a-manger-silent-night-with-singing.mp3">Download track part 2 (with singing)</a>
-          </audio>
         </article>
         <article class="score-card song-card" id="song-4">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">4</span>
             <div>
-              <p class="soft-kicker">Song 4</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">Angels We Have Heard On High</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/zyKgSncQAOdgY2-" target="_blank" rel="noopener">Open slides</a>
+              <h2>Angels We Have Heard On High</h2>
             </div>
           </div>
-          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
-          <div class="song-actions no-print" style="margin-bottom:4px">
-            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3" download>Track · Part 1 (music only)</a>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/zyKgSncQAOdgY2-" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3" download>Track · Part 1 (music only)</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3" download>Track · Part 2 (with singing)</a>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3">Download track part 1 (music only)</a>
-          </audio>
-          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
-          <div class="song-actions no-print" style="margin-bottom:4px">
-            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Part 1 (music only)</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-music-only.mp3">Download track part 1 (music only)</a>
+              </audio>
+            </div>
+            <div>
+              <p class="track-label">Part 2 (with singing)</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3">Download track part 2 (with singing)</a>
+              </audio>
+            </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/angels-we-have-heard-on-high-with-singing.mp3">Download track part 2 (with singing)</a>
-          </audio>
         </article>
         <article class="score-card song-card" id="song-5">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">5</span>
             <div>
-              <p class="soft-kicker">Song 5</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">When Love Was Born</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/IFbnEfQTLV1IY6g" target="_blank" rel="noopener">Open slides</a>
-              <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3" download>Track</a>
+              <h2>When Love Was Born</h2>
             </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">Download track</a>
-          </audio>
-          <p class="soft-kicker" style="margin-top:8px">Lyric video (music only)</p>
-          <video class="song-video" controls preload="metadata" playsinline src="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">
-            <a href="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">Download lyric video</a>
-          </video>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/IFbnEfQTLV1IY6g" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3" download>Track</a>
+          </div>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Track</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/when-love-was-born.mp3">Download track</a>
+              </audio>
+            </div>
+            <div>
+              <p class="track-label">Lyric video (music only)</p>
+              <video class="song-video" controls preload="metadata" playsinline src="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">
+                <a href="/Grade-1-Music/video/christmas-2026/when-love-was-born-lyrics.mp4">Download lyric video</a>
+              </video>
+            </div>
+          </div>
         </article>
         <article class="score-card song-card" id="song-6">
           <div class="score-head">
+            <span class="song-num" aria-hidden="true">6</span>
             <div>
-              <p class="soft-kicker">Song 6</p>
-              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">He is Love, He is Light</h2>
-            </div>
-            <div class="song-actions no-print">
-              <a class="btn btn-primary" href="https://www.canva.com/d/4vPHNJGsqznvoge" target="_blank" rel="noopener">Open slides</a>
-              <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3" download>Track</a>
+              <h2>He is Love, He is Light</h2>
             </div>
           </div>
-          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3">
-            <a href="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3">Download track</a>
-          </audio>
+          <div class="song-actions no-print">
+            <a class="btn" href="https://www.canva.com/d/4vPHNJGsqznvoge" target="_blank" rel="noopener">Open slides</a>
+            <a class="btn" href="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3" download>Track</a>
+          </div>
+          <div class="tracks">
+            <div>
+              <p class="track-label">Track</p>
+              <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3">
+                <a href="/Grade-1-Music/audio/christmas-2026/he-is-love-he-is-light.mp3">Download track</a>
+              </audio>
+            </div>
+          </div>
         </article>
-        </div>
-
+      </div>
     </main>
   </body>
 </html>

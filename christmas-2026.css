@@ -1,0 +1,212 @@
+/* Shared layout for the 2026 Christmas concert pages.
+   Each page sets a palette with body.theme-green or body.theme-red. */
+.theme-green {
+  --bg: #e7f4ea;
+  --paper: #f7fbf8;
+  --fg: #173428;
+  --muted: #2f5340;
+  --line: rgba(20, 92, 56, 0.18);
+  --primary: #145c38;
+  --primary-fg: #f4fff8;
+  --primary-soft: #e3f3e8;
+  --glow: rgba(20, 92, 56, 0.14);
+  --shadow: 0 10px 28px rgba(20, 70, 42, 0.08);
+}
+.theme-red {
+  --bg: #f8efe9;
+  --paper: #fffaf7;
+  --fg: #2c1818;
+  --muted: #5e3a3c;
+  --line: rgba(140, 48, 56, 0.16);
+  --primary: #8e2f3c;
+  --primary-fg: #fffaf7;
+  --primary-soft: #f8e4e4;
+  --glow: rgba(168, 56, 68, 0.14);
+  --shadow: 0 10px 28px rgba(120, 36, 42, 0.08);
+}
+:root {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(1100px 480px at 50% -12%, var(--glow), transparent 62%),
+    var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+.page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+.hero { text-align: center; margin: 0 0 8px; }
+.kicker {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 650;
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  line-height: 1.12;
+  margin: 0;
+  color: var(--primary);
+}
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--fg);
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+.lead {
+  color: var(--muted);
+  max-width: 36rem;
+  margin: 12px auto 0;
+  font-size: 17px;
+}
+.div-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.song-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 22px 0 4px;
+}
+.song-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 22px 0 8px;
+  align-items: stretch;
+}
+.score-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100%;
+}
+.score-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.song-num {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--primary);
+  color: var(--primary-fg);
+  display: grid;
+  place-items: center;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.song-card h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--fg);
+  scroll-margin-top: 16px;
+}
+.byline {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+}
+.btn {
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primary);
+  background: #fff;
+}
+.btn:hover { background: var(--primary-soft); }
+.btn:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+.song-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.track-label {
+  margin: 0 0 6px;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+.song-audio {
+  display: block;
+  width: 100%;
+  margin: 0;
+  accent-color: var(--primary);
+}
+.song-video {
+  display: block;
+  width: 100%;
+  margin: 0;
+  background: #1c1414;
+  border-radius: 12px;
+}
+@media (min-width: 900px) {
+  .song-stack { grid-template-columns: 1fr 1fr; }
+  .score-card { min-height: 460px; }
+}
+@media (max-width: 520px) {
+  .page { width: min(100%, calc(100% - 20px)); padding-top: 20px; }
+  .score-card { padding: 14px; }
+  .song-num { width: 48px; height: 48px; font-size: 1.25rem; }
+  .song-card h2 { font-size: 1.2rem; }
+}
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .score-card { box-shadow: none; break-inside: avoid; min-height: 0; }
+  .song-stack { display: block; }
+  .score-card { margin-bottom: 16px; }
+}
