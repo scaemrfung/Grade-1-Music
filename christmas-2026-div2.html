@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Christmas Concert 2026 · Div. 2 (Grades 3-6)</title>
+    <meta name="description" content="Christmas Concert 2026 Div. 2 (Grades 3-6) songs with practice tracks." />
+    <meta name="theme-color" content="#5c3d8a" />
+    <link rel="icon" type="image/svg+xml" href="/Grade-1-Music/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..700;1,400..700&amp;family=Newsreader:opsz,wght@6..72,500..700&amp;display=swap" />
+    <style>
+      :root {
+        --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+        --font-serif: "Newsreader", Georgia, serif;
+        --bg: #f7f1e8;
+        --paper: #fffdf8;
+        --fg: #1f1a24;
+        --muted: #5c5566;
+        --subtle: #7a7385;
+        --line: rgba(45, 30, 70, 0.12);
+        --primary: #5c3d8a;
+        --primary-fg: #fffdf8;
+        --primary-soft: #efe6f8;
+        --accent: #c4a035;
+        --radius: 16px;
+        --shadow: 0 10px 28px rgba(45, 30, 70, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background:
+          radial-gradient(1200px 500px at 50% -10%, rgba(92, 61, 138, 0.12), transparent 60%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+      .page {
+        width: min(760px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 56px;
+      }
+      .hero {
+        text-align: center;
+        margin: 8px 0 22px;
+      }
+      .kicker {
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--subtle);
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      h1 {
+        font-family: var(--font-serif);
+        font-weight: 650;
+        font-size: clamp(1.9rem, 5vw, 2.6rem);
+        line-height: 1.15;
+        margin: 0 0 12px;
+        color: var(--primary);
+      }
+      .lead {
+        color: var(--muted);
+        max-width: 38rem;
+        margin: 0 auto;
+        font-size: 17px;
+      }
+      .song-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin: 22px 0 8px;
+      }
+      .song-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin: 18px 0 28px;
+      }
+      .score-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px 18px 16px;
+      }
+      .score-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .song-card h2 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        font-family: var(--font-sans);
+        scroll-margin-top: 16px;
+      }
+      .soft-kicker {
+        color: var(--subtle);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .btn {
+        font: inherit;
+        border: 0;
+        border-radius: 999px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 11px 16px;
+        font-size: 14.5px;
+        font-weight: 650;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: var(--primary-fg);
+      }
+      .btn-primary:hover { filter: brightness(1.06); }
+      .btn-ghost {
+        color: var(--fg);
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .btn-ghost:hover { background: var(--primary-soft); }
+      .song-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .song-audio {
+        width: 100%;
+        margin: 10px 0 6px;
+        max-width: 100%;
+      }
+      .song-video {
+        width: 100%;
+        margin: 10px 0 6px;
+        max-width: 100%;
+        background: #000;
+        border-radius: 12px;
+      }
+      .gp-note {
+        border-left: 3px solid var(--primary);
+        background: var(--primary-soft);
+        color: var(--fg);
+        border-radius: 0 12px 12px 0;
+        margin: 12px 0 0;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+      footer.page-foot {
+        text-align: center;
+        color: var(--subtle);
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      @media (max-width: 520px) {
+        .page { width: min(100%, calc(100% - 24px)); padding-top: 20px; }
+        .score-card { padding: 14px; }
+        .song-card h2 { font-size: 19px; }
+        .btn { min-height: 42px; padding: 10px 14px; font-size: 14px; }
+      }
+      @media print {
+        body { background: #fff; }
+        .no-print { display: none !important; }
+        .score-card { box-shadow: none; break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" id="main">
+      <header class="hero">
+        <p class="kicker">Concert · Friday, December 11, 2026</p>
+        <h1>Christmas Concert 2026 · Div. 2 (Grades 3-6)</h1>
+        <p class="lead">Practice tracks for each concert song. Play a track or jump to a song below.</p>
+        <nav class="song-jump no-print" aria-label="Other concert page" style="margin-top:14px;margin-bottom:0">
+          <a class="btn btn-ghost" href="/Grade-1-Music/christmas-2026.html">Div. 1 page</a>
+        </nav>
+      </header>
+
+      <nav class="song-jump no-print" aria-label="Songs on this page">
+        <a class="btn btn-ghost" href="#song-1">1. By Faith Tonight</a><a class="btn btn-ghost" href="#song-2">2. O Little Town of Bethlehem</a><a class="btn btn-ghost" href="#song-3">3. Mary's Boy Child</a><a class="btn btn-ghost" href="#song-4">4. I'll Sing My Hallelujahs</a><a class="btn btn-ghost" href="#song-6">6. When We Seek Him</a><a class="btn btn-ghost" href="#song-7">7. O Come, All Ye Faithful</a><a class="btn btn-ghost" href="#song-8">8. A Christmas Medley</a>
+      </nav>
+      <!-- Each concert song is one article below. Copy a card and use the song's real number as the id (song-5 is Away In A Manger, still to come). -->
+      <div class="song-stack">
+        <article class="score-card song-card" id="song-1">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 1 · by cloudleft</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">By Faith Tonight</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/by-faith-tonight-with-singing.mp3">Download track part 2 (with singing)</a>
+          </audio>
+          <div class="gp-note">By cloudleft. Music only is 4:15. With singing is 4:18. Room for lyrics, links and notes.</div>
+        </article>
+        <article class="score-card song-card" id="song-2">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 2</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">O Little Town of Bethlehem</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/o-little-town-of-bethlehem-with-singing.mp3">Download track part 2 (with singing)</a>
+          </audio>
+          <div class="gp-note">About 2:15 each. Room for lyrics, links and notes.</div>
+        </article>
+        <article class="score-card song-card" id="song-3">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 3</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">Mary's Boy Child</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Music only</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/marys-boy-child-music-only.mp3" download>Track · music only</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/marys-boy-child-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/marys-boy-child-music-only.mp3">Download track (music only)</a>
+          </audio>
+          <div class="gp-note">Music only, 2:40. Room for lyrics, links and notes.</div>
+        </article>
+        <article class="score-card song-card" id="song-4">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 4</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">I'll Sing My Hallelujahs</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (singing on the chorus only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-chorus-singing-only.mp3" download>Track · Part 2 (singing on the chorus only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-chorus-singing-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-chorus-singing-only.mp3">Download track part 2 (singing on the chorus only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 3 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-with-singing.mp3" download>Track · Part 3 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/ill-sing-my-hallelujahs-with-singing.mp3">Download track part 3 (with singing)</a>
+          </audio>
+          <div class="gp-note">2:43 each. Room for lyrics, links and notes.</div>
+        </article>
+        <!-- Song 5, Away In A Manger, goes here when the tracks are ready. -->
+        <article class="score-card song-card" id="song-6">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 6</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">When We Seek Him</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/when-we-seek-him-with-singing.mp3">Download track part 2 (with singing)</a>
+          </audio>
+          <div class="gp-note">Music only is 3:12. With singing is 3:17. Room for lyrics, links and notes.</div>
+        </article>
+        <article class="score-card song-card" id="song-7">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 7</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">O Come, All Ye Faithful</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/o-come-all-ye-faithful-with-singing.mp3">Download track part 2 (with singing)</a>
+          </audio>
+          <div class="gp-note">Music only is 2:42. With singing is 2:44. Room for lyrics, links and notes.</div>
+        </article>
+        <article class="score-card song-card" id="song-8">
+          <div class="score-head">
+            <div>
+              <p class="soft-kicker">Song 8</p>
+              <h2 style="margin:0 0 8px;font-size:22px;font-family:var(--font-sans)">A Christmas Medley</h2>
+            </div>
+          </div>
+          <p class="soft-kicker" style="margin-top:4px">Part 1 (music only)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-music-only.mp3" download>Track · Part 1 (music only)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-music-only.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-music-only.mp3">Download track part 1 (music only)</a>
+          </audio>
+          <p class="soft-kicker" style="margin-top:8px">Part 2 (with singing)</p>
+          <div class="song-actions no-print" style="margin-bottom:4px">
+            <a class="btn btn-ghost" href="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-with-singing.mp3" download>Track · Part 2 (with singing)</a>
+          </div>
+          <audio class="song-audio" controls preload="metadata" src="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-with-singing.mp3">
+            <a href="/Grade-1-Music/audio/christmas-2026-div2/a-christmas-medley-with-singing.mp3">Download track part 2 (with singing)</a>
+          </audio>
+          <div class="gp-note">3:44 each. Room for lyrics, links and notes.</div>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
